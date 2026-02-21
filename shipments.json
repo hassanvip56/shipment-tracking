@@ -1,6 +1,6 @@
 [
   {
-    "tracking": "DUBAI45",
+    "tracking": "45",
     "status": "الشحنة في نصيب",
     "updates": [
       { "date": "2026-02-20", "note": "Arrived at warehouse" },
@@ -11,7 +11,7 @@
 
 [
   {
-    "tracking": "DUBAI44",
+    "tracking": "44",
     "status": "الشحنة في العمري",
     "updates": [
       { "date": "2026-02-20", "note": "Arrived at warehouse" },
