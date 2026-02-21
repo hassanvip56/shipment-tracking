@@ -8,14 +8,3 @@
     ]
   }
 ]
-
-[
-  {
-    "tracking": "44",
-    "status": "الشحنة في العمري",
-    "updates": [
-      { "date": "2026-02-20", "note": "Arrived at warehouse" },
-      { "date": "2026-02-19", "note": "Picked up from sender" }
-    ]
-  }
-]
