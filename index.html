@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Track Your Shipment</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background: #f4f4f4; }
+    .box { background: white; padding: 20px; max-width: 500px; margin: auto; border-radius: 8px; }
+    input { width: 100%; padding: 10px; margin-top: 10px; }
+    button { padding: 10px; width: 100%; margin-top: 10px; background: black; color: white; border: none; }
+    .result { margin-top: 20px; }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h2>Track Your Shipment</h2>
+  <input id="track" placeholder="Enter tracking number">
+  <button onclick="trackShipment()">Track</button>
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+async function trackShipment() {
+  const code = document.getElementById("track").value.trim().toUpperCase();
+  const res = await fetch("shipments.json");
+  const data = await res.json();
+
+  const item = data.find(s => s.tracking === code);
+  const result = document.getElementById("result");
+
+  if (!item) {
+    result.innerHTML = "<p>❌ Tracking number not found</p>";
+    return;
+  }
+
+  let html = `<p><b>Status:</b> ${item.status}</p><ul>`;
+  item.updates.forEach(u => {
+    html += `<li>${u.date} – ${u.note}</li>`;
+  });
+  html += "</ul>";
+
+  result.innerHTML = html;
+}
+</script>
+
+</body>
+</html>
